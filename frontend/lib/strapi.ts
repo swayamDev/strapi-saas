@@ -72,8 +72,8 @@ export function loginUser(identifier: string, password: string) {
   });
 }
 
-export function fetchCurrentUser(jwt: string) {
-  return strapiFetch(
+export function fetchCurrentUser(jwt: string): Promise<StrapiUser> {
+  return strapiFetch<StrapiUser>(
     "/api/users/me",
     {
       method: "GET",
